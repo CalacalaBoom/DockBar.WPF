@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockMenuPro\\DockMenuPro.csproj": {}
+    "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockBar.WPF\\DockMenuPro\\DockMenuPro.csproj": {}
   },
   "projects": {
-    "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockMenuPro\\DockMenuPro.csproj": {
+    "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockBar.WPF\\DockMenuPro\\DockMenuPro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockMenuPro\\DockMenuPro.csproj",
+        "projectUniqueName": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockBar.WPF\\DockMenuPro\\DockMenuPro.csproj",
         "projectName": "DockMenuPro",
-        "projectPath": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockMenuPro\\DockMenuPro.csproj",
+        "projectPath": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockBar.WPF\\DockMenuPro\\DockMenuPro.csproj",
         "packagesPath": "C:\\Users\\HEYii\\.nuget\\packages\\",
-        "outputPath": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockMenuPro\\obj\\",
+        "outputPath": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockBar.WPF\\DockMenuPro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

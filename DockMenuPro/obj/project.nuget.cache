@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kfNKkFeZ19Y9SExjwk4PIqIFf7vYf+QkHlJbWI2X07aIhM8iIMijSDr/SUnuvkw0teQr3YsyRmXkavU3hm7H2A==",
+  "dgSpecHash": "upXxVYpNnXSTIQFMG9VXBoWMK90M7CSMoeO6mqoh7oXzJkq6F2Uv76dL13TpR9sGQbTY2OKDC9Uq2ipPWwqorA==",
   "success": true,
-  "projectFilePath": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockMenuPro\\DockMenuPro.csproj",
+  "projectFilePath": "E:\\Lib\\Demo\\Welcome\\DockMenuPro\\DockBar.WPF\\DockMenuPro\\DockMenuPro.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
