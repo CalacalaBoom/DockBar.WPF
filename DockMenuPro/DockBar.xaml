@@ -1,0 +1,297 @@
+﻿<UserControl x:Class="DockMenuPro.DockBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DockMenuPro"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="DockBar.ButtonStyle"
+               TargetType="Button">
+            <Setter Property="Width"
+                    Value="50" />
+            <Setter Property="Height"
+                    Value="50" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderThickness="0"
+                                Background="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Width"
+                                             To="60"
+                                             Duration="0:0:0.1" />
+                            <DoubleAnimation Storyboard.TargetProperty="Height"
+                                             To="60"
+                                             Duration="0:0:0.1" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Width"
+                                             To="50"
+                                             Duration="0:0:0.1" />
+                            <DoubleAnimation Storyboard.TargetProperty="Height"
+                                             To="50"
+                                             Duration="0:0:0.1" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="DockBar.Button.PopupStyle"
+               TargetType="Popup">
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="AllowsTransparency"
+                    Value="True" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="Placement"
+                    Value="Top" />
+            <Setter Property="VerticalOffset"
+                    Value="-5" />
+        </Style>
+
+        <Style x:Key="DockBar.Button.Popup.BorderStyle"
+               TargetType="Border">
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+            <Setter Property="Height"
+                    Value="26" />
+        </Style>
+
+        <Style x:Key="DockBar.Button.Popup.TextBlockStyle"
+               TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="13" />
+            <Setter Property="Margin"
+                    Value="10,0" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style x:Key="DockBar.Button.Popup.PathStyle"
+               TargetType="Path">
+            <Setter Property="Data"
+                    Value="M0,0 L8,8 16,0 L0,0" />
+            <Setter Property="Width"
+                    Value="16" />
+            <Setter Property="Height"
+                    Value="8" />
+            <Setter Property="Fill"
+                    Value="White" />
+            <Setter Property="Stretch"
+                    Value="None" />
+            <Setter Property="Stroke"
+                    Value="White" />
+            <Setter Property="VerticalAlignment"
+                    Value="Bottom" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="Transparent">
+
+        <Border Background="#FF272822"
+                CornerRadius="25"
+                Opacity="0.7" />
+
+        <Grid x:Name="DockGrid"/>
+    </Grid>
+</UserControl>
+<!--<Border Background="#FF272822"
+        CornerRadius="25"
+        Opacity="0.7" />
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="60" />
+        <ColumnDefinition Width="60" />
+        <ColumnDefinition Width="60" />
+        <ColumnDefinition Width="60" />
+        <ColumnDefinition Width="60" />
+        <ColumnDefinition Width="60" />
+        <ColumnDefinition Width="60" />
+        <ColumnDefinition Width="60" />
+    </Grid.ColumnDefinitions>
+
+    <Button Style="{StaticResource DockBar.ButtonStyle}"
+            x:Name="facebook">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/facebook.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="facebook" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+
+    <Button Grid.Column="1"
+            x:Name="line"
+            Style="{StaticResource DockBar.ButtonStyle}">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/line.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="line" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+
+    <Button Grid.Column="2"
+            x:Name="linkedin"
+            Style="{StaticResource DockBar.ButtonStyle}">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/linkedin.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="linkedin" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+
+    <Button Grid.Column="3"
+            x:Name="pinterest"
+            Style="{StaticResource DockBar.ButtonStyle}">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/pinterest.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="pinterest" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+
+    <Button Grid.Column="4"
+            x:Name="qq"
+            Style="{StaticResource DockBar.ButtonStyle}">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/qq.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="qq" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+
+    <Button Grid.Column="5"
+            x:Name="twitter"
+            Style="{StaticResource DockBar.ButtonStyle}">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/twitter.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="twitter" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+
+    <Button Grid.Column="6"
+            x:Name="wechat"
+            Style="{StaticResource DockBar.ButtonStyle}">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/wechat.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="wechat" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+
+    <Button Grid.Column="7"
+            Name="youtube"
+            Style="{StaticResource DockBar.ButtonStyle}">
+        <Button.Background>
+            <ImageBrush ImageSource="/Asset/images/youtube.png"
+                        Stretch="Uniform" />
+        </Button.Background>
+        <Popup Style="{StaticResource DockBar.Button.PopupStyle}"
+               PlacementTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+               IsOpen="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}},Path=IsMouseOver,Mode=OneWay}"
+               Opened="Popup_Opened">
+            <Grid>
+                <Border Style="{StaticResource DockBar.Button.Popup.BorderStyle}">
+                    <TextBlock Style="{StaticResource DockBar.Button.Popup.TextBlockStyle}"
+                               Text="youtube" />
+                </Border>
+                <Path Style="{StaticResource DockBar.Button.Popup.PathStyle}" />
+            </Grid>
+        </Popup>
+    </Button>
+</Grid>-->
